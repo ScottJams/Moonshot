@@ -29,6 +29,10 @@ public class RespawnState : PlayerState
         }
 
     }
+    public override void SpriteUpdate()
+    {
+        // Don't flip sprite during respawn
+    }
 
     public override void PhysicsUpdate()
     {

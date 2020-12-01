@@ -33,6 +33,10 @@ public class DeathState : PlayerState
 
     }
 
+    public override void SpriteUpdate()
+    {
+        // Don't flip sprite during death
+    }
 
     public override void PhysicsUpdate()
     {

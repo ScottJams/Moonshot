@@ -49,7 +49,11 @@ public class PlayerState : MonoBehaviour
     // Sprite rendering - default implementation 
     public virtual void SpriteUpdate()
     {
-        playerController.SpriteRenderer.flipX = (horizontalInput < 0) ? true : false;
+        if ((horizontalInput > 0.1 || horizontalInput < -0.1) && !LevelManager.gameIsPaused)
+        {
+            playerController.SpriteRenderer.flipX = (horizontalInput < 0) ? true : false;
+        }
+   
     }
 
     // Physics calculations
