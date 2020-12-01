@@ -11,7 +11,7 @@ public class ScrollBackground : MonoBehaviour
     private void Start()
     {
         startPosX = transform.position.x;
-        widthToScroll = GetComponent<RectTransform>().rect.width / 2;
+        widthToScroll = Screen.width;
     }
 
     void Update()
