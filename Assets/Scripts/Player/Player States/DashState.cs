@@ -22,7 +22,7 @@ public class DashState : PlayerState
         playerController.RemoveDash();
         dashing = true;
         currentDashTime = playerController.dashDuration;
-        dashVector = new Vector2(0,0);
+        dashVector = new Vector2(0, 0);
         AudioManager.SharedInstance.PlaySoundEffect(SoundEffect.dash);
         playerController.TrailRenderer.emitting = true;
     }
@@ -44,6 +44,31 @@ public class DashState : PlayerState
         if (dashVector.x == 0 && dashVector.y == 0)
         {
             dashVector = new Vector2(horizontalInput, verticalInput);
+
+            // Clamp diagonal dash to 0.75, 0.75 if both inputs exceed threshold
+            float diagonalClamp = 0.75f;
+            if (dashVector.x > diagonalClamp && dashVector.y > diagonalClamp)
+            {
+                dashVector.x = diagonalClamp;
+                dashVector.y = diagonalClamp;
+            }
+            else if (dashVector.x > diagonalClamp && dashVector.y < -diagonalClamp)
+            {
+                dashVector.x = diagonalClamp;
+                dashVector.y = -diagonalClamp;
+            }
+            else if (dashVector.x < -diagonalClamp && dashVector.y > diagonalClamp)
+            {
+                dashVector.x = -diagonalClamp;
+                dashVector.y = diagonalClamp;
+            }
+            else if (dashVector.x < -diagonalClamp && dashVector.y < -diagonalClamp)
+            {
+                dashVector.x = -diagonalClamp;
+                dashVector.y = -diagonalClamp;
+            }
+
+
             // If no input then dash straight ahead
             if (dashVector.x == 0 && dashVector.y == 0)
             {
@@ -57,17 +82,17 @@ public class DashState : PlayerState
         if (playerController.IsGrounded() && !dashing)
         {
             playerController.ChangeToState(playerController.idleState);
-        } 
+        }
         // If dash is over and aerial, switch to falling
         else if (!playerController.IsGrounded() && !dashing)
         {
             playerController.ChangeToState(playerController.fallState);
-        } 
+        }
         // If player touches wall during dash
         else if (playerController.TouchingWallLeft() || playerController.TouchingWallRight())
         {
             playerController.ChangeToState(playerController.wallSlidingState);
-        } 
+        }
         // Cancel dash into jump
         else if (jumpInput && playerController.IsGrounded())
         {
@@ -79,7 +104,8 @@ public class DashState : PlayerState
     public override void PhysicsUpdate()
     {
         // If dash has completed, reset the dash properties
-        if (currentDashTime <= 0) {
+        if (currentDashTime <= 0)
+        {
             ResetDash();
         }
         else
@@ -87,8 +113,8 @@ public class DashState : PlayerState
         {
             currentDashTime -= Time.deltaTime;
             playerController.RigidBody.velocity = (dashVector * playerController.dashSpeed);
-        } 
- 
+        }
+
     }
 
     // Resets the dash timer before exiting state

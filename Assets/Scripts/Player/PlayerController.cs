@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool isGrounded = true;
     [Tooltip("Whether the player is falling or not")]
     [SerializeField] private bool isFalling = false;
+    [SerializeField] float horizontalInput; 
+    [SerializeField] float verticalInput; 
 
     // Player state objects
     public IdleState idleState;
@@ -106,6 +108,10 @@ void Start()
     // Update is called once per frame
     void Update()
     {
+        // DEBUG
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
+
         // Let current state deal with inputs, state changes and animation
         currentState.HandleInput();
         currentState.LogicUpdate();

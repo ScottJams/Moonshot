@@ -33,8 +33,8 @@ public class PlayerState : MonoBehaviour
     {
         if (!LevelManager.gameIsPaused)
         {
-            horizontalInput = Input.GetAxis("Horizontal");
-            verticalInput = Input.GetAxis("Vertical");
+            horizontalInput = Input.GetAxisRaw("Horizontal");
+            verticalInput = Input.GetAxisRaw("Vertical");
             dashInput = Input.GetButtonDown("Dash");
             jumpInput = Input.GetButtonDown("Jump");
         }
