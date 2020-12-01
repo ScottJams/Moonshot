@@ -4,47 +4,40 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Character movement properties - will be changed to const when decided upon
+    #region Character Movement Properties
     [Tooltip("Maximum speed that the character moves (units per second)")]
-    public float maxHorizontalSpeed;
+    public readonly float maxHorizontalSpeed = 15;
     [Tooltip("Maximum vertical speed that the character moves (units per second)")]
-    public float maxVerticalSpeed;
+    public readonly float maxVerticalSpeed = 5;
     [Tooltip("Acceleration whilst grounded")]
-    public float runAcceleration;
+    public readonly float runAcceleration = 75;
     [Tooltip("Acceleration whilst in the air")]
-    public float airAcceleration;
+    public readonly float airAcceleration = 70;
     [Tooltip("Deceleration applied when grounded and not attempting to move")]
-    public float groundDeceleration;
+    public readonly float groundDeceleration = 70;
 
     [Tooltip("Max height the character will jump")]
-    public float jumpHeight;
+    public readonly float jumpHeight = 5;
 
     [Tooltip("The duration of the wall jump")]
-    public float wallJumpDuration;
+    public readonly float wallJumpDuration = 0.2f;
     [Tooltip("The horizontal velocity to apply whilst wall jumping")]
-    public float wallJumpSpeed;
+    public readonly float wallJumpSpeed = 13;
     [Tooltip("The height of the wall jump")]
-    public float wallJumpHeight;
+    public readonly float wallJumpHeight = 1;
     [Tooltip("Fastest speed allowed to slide down walls")]
-    public float wallSlideDownSpeed;
+    public readonly float wallSlideDownSpeed = -12;
 
     [Tooltip("The velocity to apply whilst dashing")]
-    public float dashSpeed;
+    public readonly float dashSpeed = 25;
     [Tooltip("The duration the dash lasts")]
-    public float dashDuration;
+    public readonly float dashDuration = 0.25f;
 
     [SerializeField]
     public int remainingDashes;
-    
-    // DEBUG
-    [Tooltip("Whether the player is grounded or not")]
-    [SerializeField] private bool isGrounded = true;
-    [Tooltip("Whether the player is falling or not")]
-    [SerializeField] private bool isFalling = false;
-    [SerializeField] float horizontalInput; 
-    [SerializeField] float verticalInput; 
+    #endregion
 
-    // Player state objects
+    #region State Machine - slam this into its own class for future use
     public IdleState idleState;
     public RunState runState;
     public JumpState jumpState;
@@ -57,28 +50,29 @@ public class PlayerController : MonoBehaviour
 
     private List<PlayerState> playerStates = new List<PlayerState>();
     private PlayerState currentState;
+    #endregion
 
-    // Camera controller
+    #region Components
     public CameraController cameraController;
-
-    // Component refs
     [SerializeField] LayerMask groundLayer;
     public ParticleSystem dustPrefab;
+    #endregion
 
-    // Tag constants
+    #region Tags
     private const string screensTag = "Screen Bounds";
     private const string deathTag = "Death Zone";
-    
+    #endregion
 
-    // Public Accessors
+    #region Component Accessors
     public Animator PlayerAnimator { get; private set; }
     public BoxCollider2D BoxCollider { get; private set; }
     public SpriteRenderer SpriteRenderer;
     public Rigidbody2D RigidBody { get; private set; }
     public TrailRenderer TrailRenderer { get; private set; }
+    #endregion
 
-// Start is called before the first frame update
-void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         // Components
         BoxCollider = GetComponent<BoxCollider2D>();
@@ -108,10 +102,6 @@ void Start()
     // Update is called once per frame
     void Update()
     {
-        // DEBUG
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
-
         // Let current state deal with inputs, state changes and animation
         currentState.HandleInput();
         currentState.LogicUpdate();
@@ -148,8 +138,6 @@ void Start()
             heightBuffer,
             groundLayer);
 
-        // Update grounded for inspector
-        isGrounded = (raycastHit.collider != null);
         return (raycastHit.collider != null);
     }
 
@@ -202,7 +190,6 @@ void Start()
     // If the player is aerial and falling towards the ground
     public bool IsFalling()
     {
-        isFalling = ((RigidBody.velocity.y < -0.05) && !IsGrounded());
         return (RigidBody.velocity.y < -0.05) && !IsGrounded();
     }
 
