@@ -251,7 +251,7 @@ MonoBehaviour:
   m_renderer: {fileID: 45730138}
   m_maskType: 0
   _SortingLayerID: 0
-  _SortingOrder: 0
+  _SortingOrder: -1
 --- !u!23 &45730138
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -290,7 +290,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
 --- !u!222 &45730139
 CanvasRenderer:
   m_ObjectHideFlags: 2
@@ -1720,7 +1720,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: adc41f5e751e48e47b087bdca82fb195, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4174,7 +4174,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: adc41f5e751e48e47b087bdca82fb195, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4289,7 +4289,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: adc41f5e751e48e47b087bdca82fb195, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -17580,7 +17580,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: cde7469096582e04897fae80dfc34fbe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -20203,7 +20203,7 @@ MonoBehaviour:
   m_renderer: {fileID: 1432132285}
   m_maskType: 0
   _SortingLayerID: 0
-  _SortingOrder: 0
+  _SortingOrder: -1
 --- !u!23 &1432132285
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20242,7 +20242,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
 --- !u!222 &1432132286
 CanvasRenderer:
   m_ObjectHideFlags: 2
@@ -95555,7 +95555,7 @@ MonoBehaviour:
   m_renderer: {fileID: 1789325012}
   m_maskType: 0
   _SortingLayerID: 0
-  _SortingOrder: 0
+  _SortingOrder: -1
 --- !u!23 &1789325012
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -95594,7 +95594,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
 --- !u!222 &1789325013
 CanvasRenderer:
   m_ObjectHideFlags: 2
@@ -95741,7 +95741,7 @@ MonoBehaviour:
   m_renderer: {fileID: 1865495881}
   m_maskType: 0
   _SortingLayerID: 0
-  _SortingOrder: 0
+  _SortingOrder: -1
 --- !u!23 &1865495881
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -95780,7 +95780,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
 --- !u!222 &1865495882
 CanvasRenderer:
   m_ObjectHideFlags: 2
@@ -96092,7 +96092,7 @@ MonoBehaviour:
   m_renderer: {fileID: 1950061787}
   m_maskType: 0
   _SortingLayerID: 0
-  _SortingOrder: 0
+  _SortingOrder: -1
 --- !u!23 &1950061787
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -96131,7 +96131,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
 --- !u!222 &1950061788
 CanvasRenderer:
   m_ObjectHideFlags: 2
@@ -96302,7 +96302,7 @@ MonoBehaviour:
   m_renderer: {fileID: 2011182821}
   m_maskType: 0
   _SortingLayerID: 0
-  _SortingOrder: 0
+  _SortingOrder: -1
 --- !u!23 &2011182821
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -96341,7 +96341,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
 --- !u!222 &2011182822
 CanvasRenderer:
   m_ObjectHideFlags: 2
