@@ -37,4 +37,17 @@ public class LevelProgress
         this.isUnlocked = isUnlocked;
     }
 
+    public int TotalMoonsCollected()
+    {
+        int moonsCollected = 0;
+        foreach (CollectableMoonData moon in collectableMoonData)
+        {
+            if (moon.isCollected) {
+                moonsCollected += 1;
+            }
+        }
+
+        return moonsCollected;
+    }
+
 }

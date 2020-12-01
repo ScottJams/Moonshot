@@ -100,6 +100,11 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(Unpause());
     }
 
+    public int TotalMoonsCollected()
+    {
+        return levelProgress.TotalMoonsCollected();
+    }
+
     IEnumerator Unpause()
     {
         yield return new WaitForSeconds(0.1f);
